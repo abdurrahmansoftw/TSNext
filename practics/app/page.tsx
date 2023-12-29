@@ -1,5 +1,11 @@
+import Link from 'next/link'
+
 const page = () => {
-  return <div>MUI Working </div>
+  return (
+    <div>
+      <Link href='/users'>users</Link>
+    </div>
+  )
 }
 
 export default page
