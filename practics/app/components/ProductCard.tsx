@@ -1,11 +1,9 @@
-'use client'
-
-import { Button } from '@mui/material'
+import AddToCart from './AddToCart'
 
 const ProductCard = () => {
   return (
     <div>
-      <Button variant='outlined'>Product Card</Button>
+      <AddToCart />
     </div>
   )
 }
