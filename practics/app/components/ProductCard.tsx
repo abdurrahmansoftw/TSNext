@@ -5,9 +5,7 @@ import { Button } from '@mui/material'
 const ProductCard = () => {
   return (
     <div>
-      <Button variant='contained' color='primary'>
-        Add to Cart
-      </Button>
+      <Button variant='outlined'>Product Card</Button>
     </div>
   )
 }
