@@ -1,3 +1,4 @@
+import schema from '@/app/users/schema'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
@@ -9,8 +10,9 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   const body = await request.json()
-  if (!body.name) {
-    return NextResponse.json({ error: 'Name is Required' }, { status: 400 })
+  const validation = schema.safeParse(body)
+  if (!validation.success) {
+    return NextResponse.json(validation.error.errors, { status: 400 })
   }
   return NextResponse.json(body, { status: 201 })
 }
