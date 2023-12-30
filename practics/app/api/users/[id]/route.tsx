@@ -1,5 +1,5 @@
-import schema from '@/app/users/schema'
 import { NextRequest, NextResponse } from 'next/server'
+import schema from '../schema'
 
 export async function GET(request: NextRequest, { params }: { params: { id: number } }) {
   if (params.id > 10) {
