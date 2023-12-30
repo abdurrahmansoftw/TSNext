@@ -1,4 +1,4 @@
-import UserTable from '../components/userTable'
+import UserTable from '../components/UserTable'
 
 const UsersPage = async () => {
   return (

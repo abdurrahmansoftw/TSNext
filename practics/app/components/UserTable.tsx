@@ -10,6 +10,7 @@ import {
   tableCellClasses,
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
+import Link from 'next/link'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -47,12 +48,16 @@ const UserTable = async () => {
   const users: User[] = await res.json()
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label='customized table'>
+      <Table aria-label='customized table'>
         <TableHead>
           <TableRow>
             <StyledTableCell>ID</StyledTableCell>
-            <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell>Email</StyledTableCell>
+            <StyledTableCell>
+              <Link href='/users?sortOder=name'>Name</Link>
+            </StyledTableCell>
+            <StyledTableCell>
+              <Link href='/users?sortOder=email'>Email</Link>
+            </StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
