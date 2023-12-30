@@ -1,9 +1,15 @@
 import UserTable from '../components/UserTable'
 
-const UsersPage = async () => {
+interface Props {
+  searchParams: { sortOder: string }
+}
+
+const UsersPage = async ({ searchParams: { sortOder } }: Props) => {
+  console.log(sortOder)
+
   return (
     <>
-      <UserTable />
+      <UserTable sortOder={sortOder} />
     </>
   )
 }

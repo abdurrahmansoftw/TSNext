@@ -10,6 +10,7 @@ import {
   tableCellClasses,
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
+import { sort } from 'fast-sort'
 import Link from 'next/link'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -40,12 +41,17 @@ interface User {
   website: string
 }
 
+interface Props {
+  sortOder: string
+}
+
 // eslint-disable-next-line @next/next/no-async-client-component
-const UserTable = async () => {
-  const res = await fetch('http://jsonplaceholder.typicode.com/users', {
-    cache: 'no-cache',
-  })
+const UserTable = async ({ sortOder }: Props) => {
+  const res = await fetch('http://jsonplaceholder.typicode.com/users')
   const users: User[] = await res.json()
+
+  const sortedUsers = sort(users).asc(sortOder === 'email' ? (user) => user.email : (user) => user.name)
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label='customized table'>
@@ -61,7 +67,7 @@ const UserTable = async () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.map((user) => (
+          {sortedUsers.map((user) => (
             <StyledTableRow key={user.id}>
               <StyledTableCell component='th' scope='row'>
                 {user.id}
