@@ -53,7 +53,7 @@ const UserTable = async ({ sortOder }: Props) => {
   const sortedUsers = sort(users).asc(sortOder === 'email' ? (user) => user.email : (user) => user.name)
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{ my: '16px' }}>
       <Table aria-label='customized table'>
         <TableHead>
           <TableRow>
