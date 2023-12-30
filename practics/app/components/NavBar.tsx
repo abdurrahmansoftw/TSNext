@@ -6,7 +6,7 @@ import Link from 'next/link'
 const NavBar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='sticky' color='transparent'>
+      <AppBar position='sticky' elevation={1} color='primary'>
         <Toolbar>
           <IconButton size='large' edge='start' color='inherit' aria-label='menu' sx={{ mr: 2 }}>
             <MenuIcon />
