@@ -6,3 +6,5 @@ export async function GET(request: NextRequest) {
     { id: 2, name: 'Jane Doe' },
   ])
 }
+
+
