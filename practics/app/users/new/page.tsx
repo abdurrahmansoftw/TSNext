@@ -1,11 +1,16 @@
+'use client'
+import { Button } from '@mui/material'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
-const NewUserpage = () => {
+const NewUserPage = () => {
+  const router = useRouter()
+
   return (
-    <div>
-      <Link href='/'>Home Page</Link>
-    </div>
+    <Button color='primary' variant='outlined' component={Link} href='/users/new' onClick={() => router.push('/users')}>
+      Create New User
+    </Button>
   )
 }
 
-export default NewUserpage
+export default NewUserPage

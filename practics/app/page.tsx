@@ -1,9 +1,7 @@
-import ProductCard from './components/ProductCard'
-
 const page = () => {
   return (
     <div>
-      <ProductCard />
+      <p>User</p>
     </div>
   )
 }
