@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en'>
       <body className={inter.className}>
         <NavBar />
-        <Container>{children}</Container>
+        <Container className='my-5'>{children}</Container>
       </body>
     </html>
   )
