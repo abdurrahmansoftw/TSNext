@@ -47,7 +47,7 @@ interface Props {
 
 // eslint-disable-next-line @next/next/no-async-client-component
 const UserTable = async ({ sortOder }: Props) => {
-  const res = await fetch('http://jsonplaceholder.typicode.com/users')
+  const res = await fetch('http://jsonplaceholder.typicode.com/xusers')
   const users: User[] = await res.json()
 
   const sortedUsers = sort(users).asc(sortOder === 'email' ? (user) => user.email : (user) => user.name)
