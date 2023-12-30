@@ -67,7 +67,7 @@ const UserTable = async ({ sortOder }: Props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.map((user) => (
+          {sortedUsers.map((user) => (
             <StyledTableRow key={user.id}>
               <StyledTableCell component='th' scope='row'>
                 {user.id}

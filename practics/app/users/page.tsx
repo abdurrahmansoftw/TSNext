@@ -7,8 +7,6 @@ interface Props {
 }
 
 const UsersPage = async ({ searchParams: { sortOder } }: Props) => {
-  console.log(sortOder)
-
   return (
     <>
       <NewUserPage />
