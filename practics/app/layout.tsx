@@ -1,5 +1,6 @@
 import { Container } from '@mui/material'
 import type { Metadata } from 'next'
+import { SessionProvider } from 'next-auth/react'
 import { Inter } from 'next/font/google'
 import NavBar from './components/NavBar'
 import './globals.css'
@@ -15,8 +16,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <NavBar />
-        <Container className='my-5'>{children}</Container>
+        <SessionProvider>
+          <NavBar />
+          <Container className='my-5'>{children}</Container>
+        </SessionProvider>
       </body>
     </html>
   )
