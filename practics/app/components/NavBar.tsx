@@ -1,9 +1,11 @@
 'use client'
 import MenuIcon from '@mui/icons-material/Menu'
 import { AppBar, Box, Button, IconButton, Toolbar, Typography } from '@mui/material'
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 
 const NavBar = () => {
+  const { status, data: session } = useSession()
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='sticky' elevation={1} color='primary'>
