@@ -23,6 +23,9 @@ const NavBar = () => {
           <Button color='inherit' component={Link} href='/api/auth/signin'>
             Login
           </Button>
+          <Button color='inherit' component={Link} href='/api/auth/signout'>
+            Logout
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
