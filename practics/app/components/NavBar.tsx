@@ -25,11 +25,6 @@ const NavBar = () => {
             Users
           </Button>
 
-          {status === 'authenticated' && (
-            <Button color='inherit' component='div'>
-              {session?.user?.name}
-            </Button>
-          )}
           
         </Toolbar>
       </AppBar>
