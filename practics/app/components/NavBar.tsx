@@ -20,8 +20,8 @@ const NavBar = () => {
           <Button color='inherit' component={Link} href='/users'>
             Users
           </Button>
-          <Button color='inherit' component={Link} href='/products'>
-            Products
+          <Button color='inherit' component={Link} href='/api/auth/signin'>
+            Login
           </Button>
         </Toolbar>
       </AppBar>
