@@ -30,11 +30,7 @@ const NavBar = () => {
               {session?.user?.name}
             </Button>
           )}
-          {status === 'unauthenticated' && (
-            <Button color='inherit' component={Link} href='/api/auth/signin'>
-              Sign In
-            </Button>
-          )}
+          
         </Toolbar>
       </AppBar>
     </Box>
