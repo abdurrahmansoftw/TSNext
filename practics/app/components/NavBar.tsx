@@ -6,7 +6,6 @@ import Link from 'next/link'
 
 const NavBar = () => {
   const { status, data: session } = useSession()
-  if (status === 'loading') return null
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -18,9 +17,28 @@ const NavBar = () => {
           <Typography variant='h6' sx={{ flexGrow: 1 }} component={Link} href='/'>
             Home
           </Typography>
-          
-        
-          
+          <Button color='inherit' component={Link} href='/admin'>
+            Admin
+          </Button>
+          <Button color='inherit' component={Link} href='/users'>
+            Users
+          </Button>
+
+          {status === 'authenticated' && (
+            <Button color='inherit' component={Link} href='/profile'>
+              {session?.user?.name}
+            </Button>
+          )}
+
+          {status === 'authenticated' ? (
+            <Button color='inherit' component={Link} href='/api/auth/signout'>
+              Logout
+            </Button>
+          ) : (
+            <Button color='inherit' component={Link} href='/api/auth/signin'>
+              Login
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>
