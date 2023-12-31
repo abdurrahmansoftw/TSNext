@@ -26,18 +26,13 @@ const NavBar = () => {
           </Button>
 
           {status === 'authenticated' && (
-            <Button color='inherit' component={Link} href='/profile'>
+            <Button color='inherit' component='div'>
               {session?.user?.name}
             </Button>
           )}
-
-          {status === 'authenticated' ? (
-            <Button color='inherit' component={Link} href='/api/auth/signout'>
-              Logout
-            </Button>
-          ) : (
+          {status === 'unauthenticated' && (
             <Button color='inherit' component={Link} href='/api/auth/signin'>
-              Login
+              Sign In
             </Button>
           )}
         </Toolbar>
