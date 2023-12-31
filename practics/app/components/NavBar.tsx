@@ -18,9 +18,7 @@ const NavBar = () => {
           <Typography variant='h6' sx={{ flexGrow: 1 }} component={Link} href='/'>
             Home
           </Typography>
-          <Button color='inherit' component={Link} href='/admin'>
-            Admin
-          </Button>
+          
           <Button color='inherit' component={Link} href='/users'>
             Users
           </Button>
