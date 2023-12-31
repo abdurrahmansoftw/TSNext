@@ -6,6 +6,8 @@ import Link from 'next/link'
 
 const NavBar = () => {
   const { status, data: session } = useSession()
+  if (status === 'loading') return null
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='sticky' elevation={1} color='primary'>
@@ -22,12 +24,18 @@ const NavBar = () => {
           <Button color='inherit' component={Link} href='/users'>
             Users
           </Button>
-          <Button color='inherit' component={Link} href='/api/auth/signin'>
-            Login
-          </Button>
-          <Button color='inherit' component={Link} href='/api/auth/signout'>
-            Logout
-          </Button>
+
+          {status === 'authenticated' && (
+            <Button color='inherit' component={Link} href='/api/auth/signin'>
+              {session?.user?.name ?? 'Sign in'}
+            </Button>
+          )}
+
+          {status === 'unauthenticated' && (
+            <Button color='inherit' component={Link} href='/api/auth/signout'>
+              {session?.user?.name ?? 'Sign out'}
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>
