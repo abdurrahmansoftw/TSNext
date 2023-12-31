@@ -19,10 +19,7 @@ const NavBar = () => {
             Home
           </Typography>
           
-          <Button color='inherit' component={Link} href='/users'>
-            Users
-          </Button>
-
+        
           
         </Toolbar>
       </AppBar>
