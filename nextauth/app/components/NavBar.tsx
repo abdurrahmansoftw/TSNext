@@ -13,7 +13,7 @@ const NavBar = () => {
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
+          <Typography variant='h6' component={Link} href={'/'} sx={{ flexGrow: 1 }}>
             AKAID
           </Typography>
 
