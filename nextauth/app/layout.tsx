@@ -1,3 +1,4 @@
+import { Container } from '@mui/material'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import AuthProvider from './auth/Provider'
@@ -17,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <AuthProvider>
           <NavBar />
-          {children}
+          <Container sx={{ my: 5 }}>{children}</Container>
         </AuthProvider>
       </body>
     </html>
