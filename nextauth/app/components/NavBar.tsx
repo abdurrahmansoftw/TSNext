@@ -1,9 +1,12 @@
 'use client'
 import AdbIcon from '@mui/icons-material/Adb'
 import { AppBar, Button, Container, Toolbar, Typography } from '@mui/material'
+
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 
 const NavBar = () => {
+  const { status, data: session } = useSession()
   return (
     <AppBar position='static'>
       <Container maxWidth='xl'>
@@ -13,12 +16,23 @@ const NavBar = () => {
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
             AKAID
           </Typography>
-          <Button color='inherit' component={Link} href='/api/auth/signin'>
-            Login
-          </Button>
-          <Button color='inherit' component={Link} href='/api/auth/signin'>
-            Login
-          </Button>
+
+          {status === 'loading' && <p>Loading...</p>}
+
+          {status === 'authenticated' && (
+            <div>
+              {session.user!.name}
+              <Button color='inherit' component={Link} href='/api/auth/signout'>
+                Logout
+              </Button>
+            </div>
+          )}
+
+          {status === 'unauthenticated' && (
+            <Button color='inherit' component={Link} href='/api/auth/signin'>
+              Login
+            </Button>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
