@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const NavBar = () => {
   const { status, data: session } = useSession()
-
+  if (status === 'loading') return null
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='sticky' elevation={1} color='primary'>

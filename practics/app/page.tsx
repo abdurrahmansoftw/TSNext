@@ -5,7 +5,7 @@ const page = async () => {
   const session = await getServerSession(authOptions)
   return (
     <div>
-      <h1>User Name{session && <span>{session.user!.name}</span>} </h1>
+      <h1>User Name: {session && <span>{session.user!.name}</span>} </h1>
     </div>
   )
 }
