@@ -5,7 +5,6 @@ import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 
 const NavBar = () => {
-  const { status, data: session } = useSession()
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -24,19 +23,7 @@ const NavBar = () => {
             Users
           </Button>
 
-          {status === 'loading' && <div> Loading... </div>}
-
-          {status === 'authenticated' && <div>{session.user!.name}</div>}
-
-          {status === 'authenticated' ? (
-            <Button color='inherit' component={Link} href='/api/auth/signout'>
-              Logout
-            </Button>
-          ) : (
-            <Button color='inherit' component={Link} href='/api/auth/signin'>
-              Login
-            </Button>
-          )}
+         
         </Toolbar>
       </AppBar>
     </Box>
