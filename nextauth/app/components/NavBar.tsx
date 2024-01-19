@@ -1,6 +1,13 @@
 'use client'
 import AdbIcon from '@mui/icons-material/Adb'
-import { AppBar, Button, Container, Toolbar, Typography } from '@mui/material'
+import {
+	AppBar,
+	Box,
+	Button,
+	Container,
+	Toolbar,
+	Typography,
+} from '@mui/material'
 
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
@@ -25,12 +32,12 @@ const NavBar = () => {
 					{status === 'loading' && <p>Loading...</p>}
 
 					{status === 'authenticated' && (
-						<div>
+						<Box>
 							{session.user!.name}
 							<Button color='inherit' component={Link} href='/api/auth/signout'>
 								Logout
 							</Button>
-						</div>
+						</Box>
 					)}
 
 					{status === 'unauthenticated' && (
